@@ -6,53 +6,188 @@
     <link rel="icon" href="img/bruja-y-escoba-voladora.png" type="image/x-icon">
     <title>Hocus Pocus</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik+Mono+One&family=UnifrakturCook:wght@700&display=swap"
+        rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik+Mono+One&family=UnifrakturCook:wght@700&display=swap" 
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                fontFamily: {
+                    normalText: ['Mulish'],
+                    subtitles: ['UnifrakturCook'],
+                },
+                colors: {
+                    white: '#ffffff',
+                    black: '#000000',
+                    brown: '#995413',
+                    orange: '#ff8000',
+                    green: '#00913f',
+                    lightPurple: '#5C1688',
+                    gray: '#f0f0f0',
+                    darkPurple: '#461550',
+                }
+            },
+        };
+    </script>
 </head>
-<body>
-    <header class="">
-        <img src="img/logo-hocus-pocus.png" alt="Logo Hocus Pocus">
-        <h3>¡¡¡Libroooooo!!!, cariño, ven a mami. (Winifred Sanderson, 1993)</h3>
+<body class="bg-gray font-normalText text-lg items-center justify-center text-justify">
+    <header class="fixed bg-darkPurple h-20 w-screen flex justify-center items-center z-50">
+        <img src="img/logo-hocus-pocus.png" alt="Logo Hocus Pocus" class=" h-auto w-20">
+        <!--<h3>¡¡¡Libroooooo!!!, cariño, ven a mamá. (Winifred Sanderson, 1993)</h3>-->
     </header>
-    <div>
+    <div class="pt-24 ml-64 mr-64">
         <div>
-            <p>
-                <span>Itch-it-a-cop-it-a, mel-a-ka-mys-tic-a...</span> Halloween es una festividad que invita a muchos  a sumergirse en su lado
-                más oscuro y apreciar las cosas misteriosas, confusas y macabras, así como lo lúgubre y lo grotesco. Sin embargo lo
-                que conocemos como Halloween hoy en día, se remonta a una antigua tradición europea.
+            <div class="pt-2 pb-5 flex justify-center items-center space-x-4">
+                <i class="fa-solid fa-ghost"></i>
+                <span class="font-subtitles text-4xl">Orígenes de Halloween</span>
+                <i class="fa-solid fa-ghost"></i>
+            </div>
+            <img src="img/calabazas.webp" alt="Calabazas" class="h-auto w-64 p-2 border-8 border-orange float-left ml-8 mr-8 mt-3.5 duration-300 hover:scale-110">
+            <p class="ml-72 mb-3">
+                Halloween es una festividad que invita a muchos  a sumergirse en su lado más oscuro y apreciar las cosas 
+                misteriosas, confusas y macabras, así como lo lúgubre y lo grotesco. Sin embargo lo que conocemos como 
+                Halloween hoy en día, se remonta a una antigua tradición europea.
+            </p>
+            <p class="ml-72 mb-3">
+                El <span>Sambain</span>, una fiesta céltica con una antigüedad de 2,000 años, solía celebrarse después de las 
+                cosechas en honor a los espíritus de los fallecidos que, según la creencia, regresaban una vez por año con 
+                motivo de esta solemne ocasión, permaneciendo entre el reino de los vivos y el de los muertos.
             </p>
             <p>
-                El <span>Sambain</span>, una fiesta céltica con una antigüedad de 2000 años, solía celebrarse después de las cosechas
-                en honor a los espíritus de los fallecidos que, según la creencia, regresaban una vez por año con motivo de esta
-                solemne ocasión, permaneciendo entre el reino de los vivos y el de los muertos.
-            </p>
-            <p>
-                Con el tiempo, se comenzó a honrar a los santos católicos en lo que se convertitía en la Noche de Todos los Santos,
-                una festividad que evolucionó hasta convertirse en una velada para celebrar a nuestros difuntos más queridos, así como
-                para ahuyentar a los no tan queridos en la vida y temidos aún en la muerte: los conjuradores de la magia negra y la 
-                brujería.
+                Con el tiempo, se comenzó a honrar a los santos católicos en lo que se convertitía en la Noche de Todos los 
+                Santos, una festividad que evolucionó hasta convertirse en una velada para celebrar a nuestros difuntos más 
+                queridos, así como para ahuyentar a los no tan queridos en la vida y temidos aún en la muerte: los conjuradores 
+                de la magia negra y la brujería.
             </p>
         </div>
         <div>
-            <p>
-                La fiesta de Halloween, como se conoce, ha fascinado a chicos y grandes durante décadas. Durante esta época, ver películas
-                espeluznantes en compañía de amigos y familiares, no puede faltar, entre las que destaca Disney <span>Hocus Pocus</span>
-                o <span>Abracadabra</span> (1993), una cinta que se ha ganado un lugar como el clásico de clásicos de la época de
-                Halloween. 
+            <div class="pt-5 pb-5 flex justify-center items-center space-x-4">
+                <i class="fa-solid fa-cat"></i>
+                <span class="font-subtitles text-4xl">Hocus Pocus 1</span>
+                <i class="fa-solid fa-cat"></i>
+            </div>
+                <img src="img/hocus-pocus-1.jpg" alt="Hocus Pocus 1" class="h-auto w-64 p-2 border-8 border-brown float-right ml-8 mr-8 mt-3.5 duration-300 hover:scale-110">
+                <p class="mb-3">
+                    La fiesta de Halloween, como se conoce, ha fascinado a chicos y grandes durante décadas. Durante esta época, 
+                    ver películas espeluznantes en compañía de amigos y familiares, no puede faltar, entre las que destaca Disney 
+                    <span>Hocus Pocus</span> (1993), una cinta que se ha ganado un lugar como el clásico de clásicos de la época 
+                    de Halloween. 
+                </p>
+                <p class="mb-3">
+                    Hocus Pocus (1993) es una película de comedia y fantasía que se centra en tres brujas, las hermanas Sanderson, 
+                    resucitadas accidentalmente en Salem, Massachusetts, 300 años después de haber sido ejecutadas por practicar 
+                    magia negra. Winifred, Sarah y Mary Sanderson buscan recuperar su poder eterno al absorber la fuerza vital de los
+                    niños del pueblo, mientras planean extender su maldición. Su retorno es provocado por Max Dennison, un adolescente
+                    que enciende la <span>Black Flame Candle</span> en una antigua casa embrujada para impresionar a su compañera de clase, 
+                    Allison, sin saber las consecuencias.
+                </p>
+                <img src="img/hocus-pocus-1-scene.jpg" alt="Hocus Pocus 1 Scene" class="h-auto w-72 p-2 border-8 border-brown float-left ml-8 mr-8 mt-3.5 duration-300 hover:scale-110">
+                <p class="mb-3">
+                    Junto a su hermana menor, Dani, y su nuevo amigo Binx, un gato inmortal que solía ser un joven humano maldecido
+                    por las brujas, Max intenta detenerlas. Las brujas utilizan sus poderes para perseguir a los niños, 
+                    mientras estos descubren secretos de la historia local y buscan formas de derrotarlas. Entre canciones 
+                    encantadoras y hechizos, la tensión aumenta cuando las brujas están a punto de completar su 
+                    siniestro plan en la noche de Halloween, una fecha ideal para desatar su magia.
+                </p>
+                <p>
+                    Finalmente, los protagonistas logran frustrar los planes de las hermanas Sanderson,
+                    atrapándolas en el amanecer, que las convierte en polvo. Aunque Binx pierde su forma felina, su alma queda 
+                    liberada y se reencuentra con su hermana en el más allá. La película concluye
+                    mientras los ciudadanos de Salem regresan a la normalidad tras una noche inolvidable.
+                </p>
+        </div>
+        <div>
+            <div class="pt-5 pb-5 flex justify-center items-center space-x-4">
+                <i class="fa-solid fa-skull"></i>
+                <span class="font-subtitles text-4xl">Hocus Pocus 2</span>
+                <i class="fa-solid fa-skull"></i>
+            </div>
+            <img src="img/hocus-pocus-2.jpg" alt="Hocus Pocus 2" class="h-auto w-64 p-2 border-8 border-lightPurple float-right ml-8 mr-8 mt-3.5 duration-300 hover:scale-110">
+            <p class="mb-3">
+                Hocus Pocus 2 (2022) retoma la historia de las hermanas Sanderson casi tres décadas después de los eventos de la 
+                primera película. La trama sigue a Becca y Izzy, dos adolescentes de Salem que accidentalmente resucitan a las 
+                brujas al encender otra <span>Black Flame Candle</span> durante una noche de Halloween. Sin embargo, esta vez las hermanas 
+                Sanderson están más decididas que nunca a consolidar su poder y vengarse de Salem, utilizando un hechizo que 
+                podría hacerlas invencibles, el <span>machica maxima</span>
+            </p>
+            <p class="mb-3">
+                Mientras las brujas intentan adentrarse a un mundo lleno de nuevas tecnologías y desafíos, Becca, Izzy y 
+                su amiga Cassie deben unir fuerzas para detenerlas. En el proceso, las chicas descubren que Becca tiene un vínculo
+                especial con la magia, lo que les da una ventaja inesperada. La película explora temas de amistad y el 
+                poder de la unidad, mientras las adolescentes enfrentan a las Sanderson, utilizando la 
+                historia local y sus conocimientos para enfrentarlas.
             </p>
             <p>
-                Las hermanas Sanderson, un indeseable trío de astutas brujas, encontró su desventurado final una fatídica noche de 1693
-                luego de engañar a los niños del pueblo con su magia. Pero, en medio de su desgracia, Winifred, la mayor y más sabia de 
-                las hermanas (si bien no por mucho), lanzó un hechizo que les permitiría volver a su forma física 300 años después. 
-                Y he aquí que sobreviene el esperado y hechizante caos para el deleite de generaciones de fans.
+                El clímax de la película presenta un giro emocional cuando Winifred, al completar el hechizo para convertirse en 
+                la bruja más poderosa, se da cuenta de que pierde a sus hermanas en el proceso. Este momento 
+                lleva a una conclusión más emotiva que en la primera película, con Winifred eligiendo reunirse con Sarah y Mary 
+                en el más allá. Becca abraza su conexión con la magia, dejando la puerta abierta para nuevas aventuras. Hocus 
+                Pocus 2 combina un mensaje conmovedor sobre el amor fraternal, siendo una secuela que honra 
+                el espíritu del original.
             </p>
-            <p>
-                La casa de la película está inspirada en la arquitectura del siglo XVII.
+        </div>
+        <div>
+            <div class="pt-5 pb-5 flex justify-center items-center space-x-4">
+                <i class="fa-solid fa-spider"></i>
+                <span class="font-subtitles text-4xl">Hocus Pocus 3</span>
+                <i class="fa-solid fa-spider"></i>
+            </div>
+            <div class="block">
+                <p>
+                    Actualmente, Hocus Pocus 3 no ha sido lanzada oficialmente, aunque Disney confirmó en 2023 que una tercera 
+                    película está en desarrollo tras el éxito de Hocus Pocus 2. Aunque los detalles sobre la trama son desconocidos, 
+                    los fans esperan que la historia continúe explorando el legado de las hermanas Sanderson y su conexión con la 
+                    magia en Salem. Se especula que la película podría centrarse en Becca, Izzy y Cassie, quienes ahora tienen un 
+                    vínculo más fuerte con la magia.
+                </p>
+                <div class="flex justify-center items-center">
+                    <img src="img/hocus-pocus-3.webp" alt="Hocus Pocus 3" class="h-auto w-96 p-2 border-8 border-green mb-6 duration-300 hover:scale-110 text-center">
+                </div>
+                <p>
+                    Es posible que las hermanas Sanderson regresen nuevamente, ya sea como antagonistas o en un papel diferente que 
+                    permita explorar otras facetas de sus personajes. Los temas de familia, amistad y el poder de la magia podrían 
+                    seguir siendo centrales en la narrativa, al igual que el equilibrio entre lo cómico y lo emocional. También 
+                    podría haber nuevos villanos o elementos mágicos que amplíen el universo de las películas.
+                </p>
+            </div>
+        <div>
+            <div class="pt-5 pb-5 flex justify-center items-center space-x-4">
+                <i class="fa-solid fa-circle-question"></i>
+                <span class="font-subtitles text-4xl">Curiosidades de Hocus Pocus</span>
+                <i class="fa-solid fa-circle-question"></i>
+            </div>
+            <img src="img/casa-hocus-pocus.webp" alt="Casa-Hocus-Pocus" class="h-auto w-64 p-2 border-8 border-black float-left ml-8 mr-8 mt-3.5 duration-300 hover:scale-110">
+            <div class="flex justify-center items-center mt-20 ml-0">
+                <p class="mb-3">
+                    La casa de la película está inspirada en la arquitectura del siglo XVII.
+                </p>
+            </div>
+            <p class="mb-3 pt-8 clear-left">
+                ¿Cuál bruja usó cuál túnica? Los disfraces de las brujas protagonistas se diseñaron con la intención de romper 
+                con las tradicionales túnicas negras que hasta entonces habían usado las brujas en las películas. Cada uno de 
+                los vestidos, las capas y los peinados refleja la personalidad de la hermana Sanderson que lo luce.
             </p>
-            <p>
-                ¿Cuál bruja usó cuál túnica? Los disfraces de las brujas protagonistas se diseñaron con la intención de romper con las
-                tradicionales túnicas negras que hasta entonces habían usado las brujas en las películas. Cada uno de los vestidos, 
-                las capas y los peinados refleja la personalidad de la hermana Sanderson que lo luce.
+            <img src="img/salem.webp" alt="Salem" class="h-auto w-64 p-2 border-8 border-black float-right ml-8 mr-8 mt-1 duration-300 hover:scale-110">
+            <div class="flex justify-center items-center mt-14 ml-0">
+                <p>
+                    Otra curiosidad interesante es que la locación principal del filme, Salem, Massachusetts, es famosa por los 
+                    juicios de brujas reales ocurridos en el siglo XVII, lo que añade un nivel de autenticidad a las historias. 
+                    Sin embargo, muchas de las escenas del pueblo en la primera película fueron filmadas en Marblehead, una ciudad 
+                    vecina.
+                </p>
+            </div>
+            <p class="mb-4 pt-4 clear-right">
+                Thackery Binx, el gato que habla, fue el primer personaje animado parcialmente por computadora en aparecer en una
+                película. Seis gatos animatrónicos y ocho gatos de verdad ayudaron a interpretar el papel y el mínimo hechizado 
+                terminó de cobrar vida mediante el uso de tecnología CBI de vanguardia.
             </p>
+            </div>
         </div>
     </div>
 </body>
+<footer class="flex bg-darkPurple justify-center items-center h-9">
+    <p><span class="font-subtitles text-white text-lg">Itch - it - a - cop - it - a,   mel - a - ka - mys - tic - a...</span></p>
+</footer>
 </html>
