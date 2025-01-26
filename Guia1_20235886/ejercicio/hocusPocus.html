@@ -27,30 +27,41 @@
                     lightPurple: '#5C1688',
                     gray: '#f0f0f0',
                     darkPurple: '#461550',
-                }
+                },
+                screens: {
+                    'xs': '374px',
+                    'sm': '640px',
+                    'md': '768px',
+                    'lg': '1024px',
+                    'xl': '1280px',
+                    '2xl': '1536px'
+                },
             },
         };
     </script>
 </head>
-<body class="bg-gray font-normalText text-lg items-center justify-center text-justify">
-    <header class="fixed bg-darkPurple h-20 w-screen flex justify-center items-center z-50">
-        <img src="img/logo-hocus-pocus.png" alt="Logo Hocus Pocus" class=" h-auto w-20">
+<body class="bg-gray font-normalText items-center justify-center text-justify 2xl:text-lg xl:text-lg lg:text-lg md:text-base sm:text-base xs:text-sm">
+    <header class="fixed bg-darkPurple w-full flex justify-center items-center z-50 2xl:h-20 xl:h-20 lg:h-16 md:h-16 sm:h-14 xs:h-11">
+        <img src="img/logo-hocus-pocus.png" alt="Logo Hocus Pocus" class="h-auto 2xl:w-20 xl:w-20 lg:w-16 md:w-16 sm:w-14 xs:w-11">
         <!--<h3>¡¡¡Libroooooo!!!, cariño, ven a mamá. (Winifred Sanderson, 1993)</h3>-->
     </header>
-    <div class="pt-24 ml-64 mr-64">
+    <div class="2xl:pt-24 2xl:pl-52 2x:pr-52 xl:pt-24 xl:pl-44 xl:pr-44 lg:pt-16 lg:pl-28 lg:pr-28 md:pt-16 md:pl-20 md:pr-20 sm:pt-12 sm:pl-12 sm:pr-12 xs:pt-10 xs:pl-4 xs:pr-4">
         <div>
-            <div class="pt-2 pb-5 flex justify-center items-center space-x-4">
+            <div class="flex justify-center items-center 2xl:pt-2 pb-5 space-x-4 xl:space-x-4 pt-5 pb-5 lg:space-x-4 pt-4 pb-4 md:space-x-4 pt-4 pb-4
+            sm:space-x-4 pt-4 pb-4 xs:space-x-4 pt-4 pb-4">
                 <i class="fa-solid fa-ghost"></i>
-                <span class="font-subtitles text-4xl">Orígenes de Halloween</span>
+                <span class="font-subtitles 2xl:text-4xl xl:text-4xl lg:text-3xl md:text-3xl sm:text-2xl xs:text-xl">Orígenes de Halloween</span>
                 <i class="fa-solid fa-ghost"></i>
             </div>
-            <img src="img/calabazas.webp" alt="Calabazas" class="h-auto w-64 p-2 border-8 border-orange float-left ml-8 mr-8 mt-3.5 duration-300 hover:scale-110">
-            <p class="ml-72 mb-3">
+            <img src="img/calabazas.webp" alt="Calabazas" class="h-auto border-orange float-left duration-300 hover:scale-110 2xl:w-64 p-2 border-8 ml-8 mr-8 mt-3.5
+            xl:w-60 p-2 border-8 ml-7 mr-7 mt-3.5 lg:w-56 p-2 border-7 ml-6 mr-6 mt-3.5 md:w-48 p-2 border-4 ml-5 mr-5 mt-3.5 sm:w-40 p-2 border-3 ml-3 mr-3 mt-3.5
+            xs:w-32 p-2 border-3 ml-3 mr-3 mt-3.5">
+            <p class="2xl:ml-72 mb-3 xl:ml-64 mb-3 lg:mb-3 md:mb-3 sm:mb-3 xs:mb-3">
                 Halloween es una festividad que invita a muchos  a sumergirse en su lado más oscuro y apreciar las cosas 
                 misteriosas, confusas y macabras, así como lo lúgubre y lo grotesco. Sin embargo lo que conocemos como 
                 Halloween hoy en día, se remonta a una antigua tradición europea.
             </p>
-            <p class="ml-72 mb-3">
+            <p class="2xl:ml-72 mb-3 xl:mb-3 lg:mb-3 md:mb-3 sm:mb-3 xs:mb-3">
                 El <span>Sambain</span>, una fiesta céltica con una antigüedad de 2,000 años, solía celebrarse después de las 
                 cosechas en honor a los espíritus de los fallecidos que, según la creencia, regresaban una vez por año con 
                 motivo de esta solemne ocasión, permaneciendo entre el reino de los vivos y el de los muertos.
@@ -63,19 +74,22 @@
             </p>
         </div>
         <div>
-            <div class="pt-5 pb-5 flex justify-center items-center space-x-4">
+            <div class="flex justify-center items-center 2xl:pt-5 pb-5 space-x-4 xl:space-x-4 pt-5 pb-5 lg:space-x-4 pt-5 pb-5 md:space-x-4 pt-4 pb-4
+            sm:space-x-4 pt-4 pb-4 xs:space-x-4 pt-4 pb-4">
                 <i class="fa-solid fa-cat"></i>
-                <span class="font-subtitles text-4xl">Hocus Pocus 1</span>
+                <span class="font-subtitles 2xl:text-4xl xl:text-4xl lg:text-3xl md:text-3xl sm:text-2xl xs:text-xl">Hocus Pocus 1</span>
                 <i class="fa-solid fa-cat"></i>
             </div>
-                <img src="img/hocus-pocus-1.jpg" alt="Hocus Pocus 1" class="h-auto w-64 p-2 border-8 border-brown float-right ml-8 mr-8 mt-3.5 duration-300 hover:scale-110">
-                <p class="mb-3">
+                <img src="img/hocus-pocus-1.jpg" alt="Hocus Pocus 1" class="h-auto border-brown float-right duration-300 hover:scale-110 2xl:w-64 p-2 border-8 ml-8 mr-8 mt-3.5
+                xl:w-60 p-2 border-8 ml-7 mr-7 mt-3.5 lg:w-52 p-2 border-7 ml-6 mr-6 mt-3.5 md:w-44 p-2 border-4 ml-5 mr-5 mt-3.5 sm: w-36 p-2 border-2 ml-3 mr-3 mt-3.5
+                xs:w-28 p-2 border-1 ml-3 mr-3 mt-3.5">
+                <p class="2xl:mb-3 xl:mb-3 lg:mb-3 md:mb-3 sm:mb-3 xs:mb-3">
                     La fiesta de Halloween, como se conoce, ha fascinado a chicos y grandes durante décadas. Durante esta época, 
                     ver películas espeluznantes en compañía de amigos y familiares, no puede faltar, entre las que destaca Disney 
                     <span>Hocus Pocus</span> (1993), una cinta que se ha ganado un lugar como el clásico de clásicos de la época 
                     de Halloween. 
                 </p>
-                <p class="mb-3">
+                <p class="2xl:mb-3 xl:mb-3 lg:mb-3 md:mb-3 sm:mb-3 xs:mb-3">
                     Hocus Pocus (1993) es una película de comedia y fantasía que se centra en tres brujas, las hermanas Sanderson, 
                     resucitadas accidentalmente en Salem, Massachusetts, 300 años después de haber sido ejecutadas por practicar 
                     magia negra. Winifred, Sarah y Mary Sanderson buscan recuperar su poder eterno al absorber la fuerza vital de los
@@ -83,36 +97,43 @@
                     que enciende la <span>Black Flame Candle</span> en una antigua casa embrujada para impresionar a su compañera de clase, 
                     Allison, sin saber las consecuencias.
                 </p>
-                <img src="img/hocus-pocus-1-scene.jpg" alt="Hocus Pocus 1 Scene" class="h-auto w-72 p-2 border-8 border-brown float-left ml-8 mr-8 mt-3.5 duration-300 hover:scale-110">
-                <p class="mb-3">
-                    Junto a su hermana menor, Dani, y su nuevo amigo Binx, un gato inmortal que solía ser un joven humano maldecido
-                    por las brujas, Max intenta detenerlas. Las brujas utilizan sus poderes para perseguir a los niños, 
-                    mientras estos descubren secretos de la historia local y buscan formas de derrotarlas. Entre canciones 
-                    encantadoras y hechizos, la tensión aumenta cuando las brujas están a punto de completar su 
-                    siniestro plan en la noche de Halloween, una fecha ideal para desatar su magia.
-                </p>
-                <p>
-                    Finalmente, los protagonistas logran frustrar los planes de las hermanas Sanderson,
-                    atrapándolas en el amanecer, que las convierte en polvo. Aunque Binx pierde su forma felina, su alma queda 
-                    liberada y se reencuentra con su hermana en el más allá. La película concluye
-                    mientras los ciudadanos de Salem regresan a la normalidad tras una noche inolvidable.
-                </p>
+                <div class="clear-both pt-5">
+                    <img src="img/hocus-pocus-1-scene.jpg" alt="Hocus Pocus 1 Scene" class="h-auto border-brown float-left duration-300 hover:scale-110 2xl:w-72 p-2 border-8 ml-8 mr-8 mt-3.5
+                    xl:w-64 p-2 border-8 ml-7 mr-7 mt-3.5 lg:w-56 p-2 border-7 ml-6 mr-6 mt-3.5 md:w-52 p-2 border-4 ml-4 mr-4 mt-3.5 sm:w-48 p-2 border-3 ml-3 mr-3 mt-3.5 
+                    sm:w-40 p-2 border-2 ml-3 mr-3 mt-3.5 xs:w-36 p-2 border-1 ml-3 mr-3 mt-3.5">
+                    <p class="2xl:mb-3 xl:mb-3 lg:mb-3 md:mb-3 sm:mb-3 xs:mb-3">
+                        Junto a su hermana menor, Dani, y su nuevo amigo Binx, un gato inmortal que solía ser un joven humano maldecido
+                        por las brujas, Max intenta detenerlas. Las brujas utilizan sus poderes para perseguir a los niños, 
+                        mientras estos descubren secretos de la historia local y buscan formas de derrotarlas. Entre canciones 
+                        encantadoras y hechizos, la tensión aumenta cuando las brujas están a punto de completar su 
+                        siniestro plan en la noche de Halloween, una fecha ideal para desatar su magia.
+                    </p>
+                    <p>
+                        Finalmente, los protagonistas logran frustrar los planes de las hermanas Sanderson,
+                        atrapándolas en el amanecer, que las convierte en polvo. Aunque Binx pierde su forma felina, su alma queda 
+                        liberada y se reencuentra con su hermana en el más allá. La película concluye
+                        mientras los ciudadanos de Salem regresan a la normalidad tras una noche inolvidable.
+                    </p>
+            </div>
         </div>
         <div>
-            <div class="pt-5 pb-5 flex justify-center items-center space-x-4">
+            <div class="flex justify-center items-center 2xl:pt-5 pb-5 space-x-4 xl:space-x-4 pt-5 pb-5 lg:space-x-4 pt-5 pb-5 md:space-x-4 pt-5 pb-5
+            sm:space-x-4 pt-4 pb-4 xs:space-x-4 pt-4 pb-4">
                 <i class="fa-solid fa-skull"></i>
-                <span class="font-subtitles text-4xl">Hocus Pocus 2</span>
+                <span class="font-subtitles 2xl:text-4xl xl:text-4xl lg:text-3xl md:text-3xl sm:text-2xl xs:text-xl">Hocus Pocus 2</span>
                 <i class="fa-solid fa-skull"></i>
             </div>
-            <img src="img/hocus-pocus-2.jpg" alt="Hocus Pocus 2" class="h-auto w-64 p-2 border-8 border-lightPurple float-right ml-8 mr-8 mt-3.5 duration-300 hover:scale-110">
-            <p class="mb-3">
+            <img src="img/hocus-pocus-2.jpg" alt="Hocus Pocus 2" class="h-auto border-lightPurple float-right duration-300 hover:scale-110 2xl:w-64 p-4 border-8 ml-8 mr-8 mt-3.5
+            xl:w-60 p-4 border-8 ml-7 mr-7 mt-3.5 lg:w-56 p-4 border-7 ml-6 mr-6 mt-3.5 md:w-48 p-4 border-4 ml-4 mr-5 mt-3.5 sm:w-36 p-4 border-3 ml-3 mr-3 mt-3.5
+            xs:w-32 p-4 border-1 ml-2 mr-2 mt-3.5">
+            <p class="2xl:mb-3 xl:mb-3 lg:mb-3 md:mb-3 sm:mb-3 xs:mb-3">
                 Hocus Pocus 2 (2022) retoma la historia de las hermanas Sanderson casi tres décadas después de los eventos de la 
                 primera película. La trama sigue a Becca y Izzy, dos adolescentes de Salem que accidentalmente resucitan a las 
                 brujas al encender otra <span>Black Flame Candle</span> durante una noche de Halloween. Sin embargo, esta vez las hermanas 
                 Sanderson están más decididas que nunca a consolidar su poder y vengarse de Salem, utilizando un hechizo que 
                 podría hacerlas invencibles, el <span>machica maxima</span>
             </p>
-            <p class="mb-3">
+            <p class="2xl:mb-3 xl:mb-3 lg:mb-3 md:mb-3 sm:mb-3 xs:mb-3">
                 Mientras las brujas intentan adentrarse a un mundo lleno de nuevas tecnologías y desafíos, Becca, Izzy y 
                 su amiga Cassie deben unir fuerzas para detenerlas. En el proceso, las chicas descubren que Becca tiene un vínculo
                 especial con la magia, lo que les da una ventaja inesperada. La película explora temas de amistad y el 
@@ -129,9 +150,10 @@
             </p>
         </div>
         <div>
-            <div class="pt-5 pb-5 flex justify-center items-center space-x-4">
+            <div class="flex justify-center items-center 2xl:space-x-4 pt-5 pb-5 xl:space-x-4 pt-5 pb-5 lg:space-x-4 pt-5 pb-5 md:space-x-4 pt-5 pb-5
+            sm:space-x-4 pt-4 pb-4 xs:space-x-4 pt-4 pb-4">
                 <i class="fa-solid fa-spider"></i>
-                <span class="font-subtitles text-4xl">Hocus Pocus 3</span>
+                <span class="font-subtitles 2xl:text-4xl xl:text-4xl lg:text-3xl md:text-3xl sm:text-2xl xs:text-xl">Hocus Pocus 3</span>
                 <i class="fa-solid fa-spider"></i>
             </div>
             <div class="block">
@@ -143,7 +165,9 @@
                     vínculo más fuerte con la magia.
                 </p>
                 <div class="flex justify-center items-center">
-                    <img src="img/hocus-pocus-3.webp" alt="Hocus Pocus 3" class="h-auto w-96 p-2 border-8 border-green mb-6 duration-300 hover:scale-110 text-center">
+                    <img src="img/hocus-pocus-3.webp" alt="Hocus Pocus 3" class="h-auto border-green text-center duration-300 hover:scale-110 2xl:w-96 p-2 border-8 mb-6 
+                    xl:w-80 p-2 border-8 ml-7 mr-7 mt-3.5 lg:w-72 p-2 border-7 ml-6 mr-6 mt-3.5 md:w-64 p-2 border-4 ml-5 mr-5 mt-3.5 sm:w-56 p-2 border-3 ml-3 mr-3 mt-3.5
+                    xs:w-52 p-2 border-1 ml-3 mr-3 mt-3.5">
                 </div>
                 <p>
                     Es posible que las hermanas Sanderson regresen nuevamente, ya sea como antagonistas o en un papel diferente que 
@@ -152,42 +176,48 @@
                     podría haber nuevos villanos o elementos mágicos que amplíen el universo de las películas.
                 </p>
             </div>
+        </div>
         <div>
-            <div class="pt-5 pb-5 flex justify-center items-center space-x-4">
+            <div class="flex justify-center items-center 2xl:pt-5 pb-5 space-x-4 xl:space-x-4 pt-5 pb-5 lg:space-x-4 pt-5 pb-5 md:space-x-4 pt-5 mb-5
+            sm:space-x-4 pt-4 pb-4 xs:space-x-4 pt-4 pb-4">
                 <i class="fa-solid fa-circle-question"></i>
-                <span class="font-subtitles text-4xl">Curiosidades de Hocus Pocus</span>
+                <span class="font-subtitles 2xl:text-4xl xl:text-4xl lg:text-3xl md:text-3xl sm:text-2xl xs:text-xl">Curiosidades de Hocus Pocus</span>
                 <i class="fa-solid fa-circle-question"></i>
             </div>
-            <img src="img/casa-hocus-pocus.webp" alt="Casa-Hocus-Pocus" class="h-auto w-64 p-2 border-8 border-black float-left ml-8 mr-8 mt-3.5 duration-300 hover:scale-110">
-            <div class="flex justify-center items-center mt-20 ml-0">
-                <p class="mb-3">
+            <div class="block">
+                <p class="2xl:mb-3 xl:mb-3 lg:mb-3 md:mb-3 sm:mb-3 xs:mb-3">
                     La casa de la película está inspirada en la arquitectura del siglo XVII.
                 </p>
-            </div>
-            <p class="mb-3 pt-8 clear-left">
-                ¿Cuál bruja usó cuál túnica? Los disfraces de las brujas protagonistas se diseñaron con la intención de romper 
-                con las tradicionales túnicas negras que hasta entonces habían usado las brujas en las películas. Cada uno de 
-                los vestidos, las capas y los peinados refleja la personalidad de la hermana Sanderson que lo luce.
-            </p>
-            <img src="img/salem.webp" alt="Salem" class="h-auto w-64 p-2 border-8 border-black float-right ml-8 mr-8 mt-1 duration-300 hover:scale-110">
-            <div class="flex justify-center items-center mt-14 ml-0">
-                <p>
+                <div class="flex justify-center items-center">
+                    <img src="img/casa-hocus-pocus.webp" alt="Casa-Hocus-Pocus" class="h-auto border-black duration-300 hover:scale-110 2xl:w-64 p-2 border-8 ml-8 mr-8 mt-3.5
+                    xl:w-60 p-2 border-8 ml-7 mr-7 mt-3.5 lg:w-56 p-2 border-7 ml-6 mr-6 mt-3.5 md:w-52 p-2 border-4 ml-5 mr-5 mt-3.5 sm:w-44 p-2 border-3 ml-3 mr-3 mt-3.5
+                    xs:w-52 p-2 border-1 ml-2 mr-2 mt-3.5">
+                </div>
+                <p class="2xl:mb-3 pt-8 xl:mb-3 pt-8 lg:mb-3 pt-7 md:mb-3 pt-7 sm:mb-3 pt-6 xs:mb-3">
+                    ¿Cuál bruja usó cuál túnica? Los disfraces de las brujas protagonistas se diseñaron con la intención de romper 
+                    con las tradicionales túnicas negras que hasta entonces habían usado las brujas en las películas. Cada uno de 
+                    los vestidos, las capas y los peinados refleja la personalidad de la hermana Sanderson que lo luce.
+                </p>
+                <p class="2xl:ml-0 xl:ml-0 lg:ml-0 md:ml-0 sm:ml-0 xs:ml-0">
                     Otra curiosidad interesante es que la locación principal del filme, Salem, Massachusetts, es famosa por los 
                     juicios de brujas reales ocurridos en el siglo XVII, lo que añade un nivel de autenticidad a las historias. 
                     Sin embargo, muchas de las escenas del pueblo en la primera película fueron filmadas en Marblehead, una ciudad 
                     vecina.
                 </p>
-            </div>
-            <p class="mb-4 pt-4 clear-right">
-                Thackery Binx, el gato que habla, fue el primer personaje animado parcialmente por computadora en aparecer en una
-                película. Seis gatos animatrónicos y ocho gatos de verdad ayudaron a interpretar el papel y el mínimo hechizado 
-                terminó de cobrar vida mediante el uso de tecnología CBI de vanguardia.
-            </p>
+                <div class="flex justify-center items-center">
+                    <img src="img/salem.webp" alt="Salem" class="h-auto border-black float-right duration-300 hover:scale-110 2xl:w-64 p-2 border-8 ml-8 mr-8 mt-3.5 xl:w-60 p-2 border-8 ml-7 mr-7 mt-3.5
+                    lg:w-56 p-2 border-7 ml-6 mr-6 mt-3.5 md:w-48 p-2 border-4 ml-5 mr-5 mt-3.5 sm:w-44 p-2 border-3 ml-3 mr-3 mt-3.5 xs:w-48 p-2 border-1 ml-2 mr-2 mt-3.5">
+                </div>
+                <p class="2xl:mb-4 pt-4 xl:mb-4 pt-4 lg:mb-4 pt-4 md:mb-4 pt-4 sm:mb-4 pt-4 xs:mb-4 pt-4">
+                    Thackery Binx, el gato que habla, fue el primer personaje animado parcialmente por computadora en aparecer en una
+                    película. Seis gatos animatrónicos y ocho gatos de verdad ayudaron a interpretar el papel y el mínimo hechizado 
+                    terminó de cobrar vida mediante el uso de tecnología CBI de vanguardia.
+                </p>
             </div>
         </div>
     </div>
 </body>
-<footer class="flex bg-darkPurple justify-center items-center h-9">
-    <p><span class="font-subtitles text-white text-lg">Itch - it - a - cop - it - a,   mel - a - ka - mys - tic - a...</span></p>
+<footer class="flex bg-darkPurple justify-center items-center 2xl:h-9 xl:h-9 lg:h-8 md:h-8 sm:h-7 xs:h-6">
+    <p><span class="font-subtitles text-white 2xl:text-lg xl:text-lg lg:text-lg md:text-base sm:text-base xs:text-sm">Itch - it - a - cop - it - a,   mel - a - ka - mys - tic - a...</span></p>
 </footer>
 </html>
