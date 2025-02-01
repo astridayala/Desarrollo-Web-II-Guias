@@ -10,22 +10,44 @@ import { Guitar } from './components/Guitar'
 function App() {
 
   const [data, setData] = useState(db)
-  console.log(data)
+  const [cart, setCart] = useState([])
+
+  function addToCart(guitar){
+    const itemIndex = cart.findIndex((item) => guitar.id === item.id)
+    console.log(itemIndex)
+    if(itemIndex === -1){ //el articulo aun no existe en el carrito
+      guitar.quantity = 1;
+      setCart([...cart, guitar]) 
+    } else { //si la guitarra ya esta añadido al carrito
+      const updatedCart = [...cart] //copia de la variable de estado
+      updatedCar[itemIndex].quantity++;
+      setCart(updatedCart);
+    }
+  }
+
+  function calculateTotal(){
+    let total = 0;
+    for (const guitar of cart) {
+      total += guitar.price * guitar.quantity;
+    }
+    return total;
+  }
 
   return (
     <>
-    <Header/>
-    <main className="container-xl mt-5">
+      <Header cart={cart} total = {calculateTotal()}/>
+      <main className="container-xl mt-5">
         <h2 className="text-center">Nuestra Colección</h2>
 
         <div className="row mt-5">
-          <Guitar/>
-          <Guitar/>
+          {data.map((guitar) => (
+            <Guitar guitar = {guitar} key={guitar.id} addToCart={addToCart}/>
+          ))}
         </div>
-    </main>
-    <Footer/>
+      </main>
+      <Footer/>
     </>
   )
 }
 
-export default App
+export default;

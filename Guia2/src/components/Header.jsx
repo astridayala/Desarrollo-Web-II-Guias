@@ -1,4 +1,4 @@
-export function Header(){
+export function Header({cart, total}){
 
     return(
         <header className="py-5 header">
@@ -16,7 +16,8 @@ export function Header(){
                         <img className="img-fluid" src="./public/img/carrito.png" alt="imagen carrito" />
 
                         <div id="carrito" className="bg-white p-3">
-                            <p className="text-center">El carrito esta vacio</p>
+                            {cart.length === 0? (<p className="text-center">El carrito esta vacio</p>):(
+                            
                             <table className="w-100 table">
                                 <thead>
                                     <tr>
@@ -28,13 +29,16 @@ export function Header(){
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    {cart.map(guitar => (
+
+                                    
+                                    <tr key={guitar.id}>
                                         <td>
-                                            <img className="img-fluid" src="./public/img/guitarra_02.jpg" alt="imagen guitarra" />
+                                            <img className="img-fluid" src={`/img/${guitar.image}.jpg` alt="imagen guitarra" />
                                         </td>
                                         <td>SRV</td>
                                         <td className="fw-bold">
-                                                $299
+                                                ${guitar.price}
                                         </td>
                                         <td className="flex align-items-start gap-4">
                                             <button
@@ -43,7 +47,7 @@ export function Header(){
                                             >
                                                 -
                                             </button>
-                                                1
+                                                {guitar.quantity}
                                             <button
                                                 type="button"
                                                 className="btn btn-dark"
@@ -60,10 +64,11 @@ export function Header(){
                                             </button>
                                         </td>
                                     </tr>
+                                    ))}
                                 </tbody>
-                            </table>
-
-                            <p className="text-end">Total pagar: <span className="fw-bold">$899</span></p>
+                            </table>)
+                            }
+                            <p className="text-end">Total pagar: <span className="fw-bold">${total}</span></p>
                             <button className="btn btn-dark w-100 mt-3 p-2">Vaciar Carrito</button>
                         </div>
                     </div>
