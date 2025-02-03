@@ -42,35 +42,30 @@ function App() {
     let total = cart.reduce((total, item) => total + item.price * item.quantity, 0)
     return total;
   }
-
-  /*const [counter, setCounter] = useState(initialValue);
-        const increment = () => setCounter(counter + 1);
-        const decrement = () => setCounter(counter - 1);
-        const reset = () => setCounter(initialValue);
-
-        return {counter, increment, decrement, reset}*/
-    
   function addQuantityGuitar(guitar){
-    setCart([...cart])
+    setCart(cart.map(item => item.id === guitar.id?{
+      ...item,quantity:item.quantity+1}:item
+    ));
   };
-
-  function removeQuantityGuitar(){
-
+  function removeQuantityGuitar(guitar){
+    setCart(cart.map(item => item.id === guitar.id?{
+      ...item,quantity:item.quantity-1}:item
+    )
+    .filter(item => item.quantity > 0)
+   );
   }
-
-  function removeGuitar(){
-
+  function removeGuitar(guitar){
+    setCart(cart.filter(item => item.id !== guitar.id));
   }
-
   function deleteCart(){
-
+    setCart([])
   }
 
 
   return (
     <>
       <Header cart={cart} total={calculateTotal()} add={addQuantityGuitar} remove={removeQuantityGuitar} 
-      removeGuitar={removeGuitar} delete={deleteCart}/>
+      removeOne={removeGuitar} deleteAll={deleteCart}/>
       <main className="container-xl mt-5">
         <h2 className="text-center">Nuestra Colección</h2>
 

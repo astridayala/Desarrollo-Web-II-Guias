@@ -1,4 +1,4 @@
-export function Header({cart, total, add}){
+export function Header({cart, total, add, remove, removeOne, deleteAll}){
 
     return(
         <header className="py-5 header">
@@ -44,6 +44,7 @@ export function Header({cart, total, add}){
                                             <button
                                                 type="button"
                                                 className="btn btn-dark"
+                                                onClick={()=>remove(guitar)}
                                             >
                                                 -
                                             </button>
@@ -51,7 +52,7 @@ export function Header({cart, total, add}){
                                             <button
                                                 type="button"
                                                 className="btn btn-dark"
-                                                onClick={()=>add(guitar.quantity)}
+                                                onClick={()=>add(guitar)}
                                             >
                                                 +
                                             </button>
@@ -60,6 +61,7 @@ export function Header({cart, total, add}){
                                             <button
                                                 className="btn btn-danger"
                                                 type="button"
+                                                onClick={()=>removeOne(guitar)}
                                             >
                                                 X
                                             </button>
@@ -70,7 +72,7 @@ export function Header({cart, total, add}){
                             </table>)
                             }
                             <p className="text-end">Total pagar: <span className="fw-bold">${total}</span></p>
-                            <button className="btn btn-dark w-100 mt-3 p-2">Vaciar Carrito</button>
+                            <button className="btn btn-dark w-100 mt-3 p-2" onClick={()=>deleteAll()}>Vaciar Carrito</button>
                         </div>
                     </div>
                 </nav>
