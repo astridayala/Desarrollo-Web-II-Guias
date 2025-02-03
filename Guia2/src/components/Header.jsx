@@ -1,4 +1,4 @@
-export function Header({cart, total}){
+export function Header({cart, total, add}){
 
     return(
         <header className="py-5 header">
@@ -6,14 +6,14 @@ export function Header({cart, total}){
             <div className="row justify-content-center justify-content-md-between">
                 <div className="col-8 col-md-3">
                     <a href="index.html">
-                        <img className="img-fluid" src="./public/img/logo.svg" alt="imagen logo" />
+                        <img className="img-fluid" src="/img/logo.svg" alt="imagen logo" />
                     </a>
                 </div>
                 <nav className="col-md-6 a mt-5 d-flex align-items-start justify-content-end">
                     <div 
                         className="carrito"
                     >
-                        <img className="img-fluid" src="./public/img/carrito.png" alt="imagen carrito" />
+                        <img className="img-fluid" src="/img/carrito.png" alt="imagen carrito" />
 
                         <div id="carrito" className="bg-white p-3">
                             {cart.length === 0? (<p className="text-center">El carrito esta vacio</p>):(
@@ -34,9 +34,9 @@ export function Header({cart, total}){
                                     
                                     <tr key={guitar.id}>
                                         <td>
-                                            <img className="img-fluid" src={`/img/${guitar.image}.jpg` alt="imagen guitarra" />
+                                            <img className="img-fluid" src={`/img/${guitar.image}.jpg`} alt="imagen guitarra" />
                                         </td>
-                                        <td>SRV</td>
+                                        <td>{guitar.name}</td>
                                         <td className="fw-bold">
                                                 ${guitar.price}
                                         </td>
@@ -51,6 +51,7 @@ export function Header({cart, total}){
                                             <button
                                                 type="button"
                                                 className="btn btn-dark"
+                                                onClick={()=>add(guitar.quantity)}
                                             >
                                                 +
                                             </button>
