@@ -1,26 +1,42 @@
 import React from 'react'
 
-export const MovieList = ({movies}) => {
+/** 
+ * Componente que muestra una lista de peliculas
+ * @param {Object[]} movies - Lista de peliculas a renderizar
+ * @param {Function} onSelectMovie - Funcion que se ejecuta al selecciona una pelicula
+ */
+
+export const MovieList = ({movies, onSelectMovie}) => {
     return(
-        <ul className="list">
+        <ul className="list list-movies">
             {movies?.map((movie) => (
-                <Movie movie={movie} key={movie.imdbID}/>
+                <Movie 
+                    movie={movie} 
+                    key={movie.imdbID}
+                    onSelectMovie = {onSelectMovie}
+                />
             ))}
         </ul>
-    )
-}
+    );
+};
 
-export const Movie = ({movie}) => {
+/**
+ * 
+ * @param {Object} movie - Datos de la pelicula
+ * @param {Function} onSelectMovie - funcion que se ejecuta al hacer click en la pelicula
+ */
+
+export const Movie = ({movie, onSelectMovie}) => {
   return (
-    <li key={movie.imdbID}>
+    <li onClick={() => onSelectMovie(movie.imdbID)}>
         <img src={movie.Poster} alt={`${movie.Title} poster`}/>
         <h3>{movie.Title}</h3>
         <div>
-        <p>
-            <span>🗓</span>
-            <span>{movie.Year}</span>
-        </p>
+            <p>
+                <span>🗓</span>
+                <span>{movie.Year}</span>
+            </p>
         </div>
     </li>
-  )
-}
+  );
+};
