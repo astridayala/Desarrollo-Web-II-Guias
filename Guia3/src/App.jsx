@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { Movie } from "./components/Movie";
+import { Logo, Nav, Search, NumResults } from "./components/Nav";
+import { Box } from "./components/Box";
 import { MovieList } from "./components/Movie";
 import { WatchedMoviesList, WatchedMoviesContainer, WatchedSummary } from "./components/WatchedMovie";
 import { useFetchMovies } from "./Hooks/useFetchMovies";
-import { Logo, Nav, Search, NumResults } from "./components/Nav";
-import { Box } from "./components/Box";
+import { MovieDetails } from "./components/MovieDetails";
 
 
 const tempMovieData = [
@@ -55,11 +55,39 @@ const tempWatchedData = [
 ];
 
 export default function App() {
+  //busqueda de las peliculas
   const [query, setQuery] = useState("");
 
-  const {movies} = useFetchMovies(query); 
+  //obtiene peliculas basadas en la consulta
+  const {movies, isLoading, error} = useFetchMovies(query); 
 
-  const [watched, setWatched] = useState(tempWatchedData);
+  //estado de peliculas vistas
+  const [watched, setWatched] = useState([]);
+
+  //estado para la pelicula seleccionada
+  const [selectedId, setSelectedId] = useState(null);
+
+  /**
+   * maneja la seleccion de una pelicula
+   * @param {string} id - id pelicula seleccionada
+   */
+
+  function handleSelectMovie(id){
+    setSelectedId(id);
+  }
+
+  function handleCloseMovie(){
+    setSelectedId(null);
+  }
+
+  /**
+   * agregar una pelicula a la lista de vistas
+   * @param {Object} movie - pelicula a agregar
+   */
+
+  function handleAddWatched(movie){
+    setWatched((watched) => [...watched, movie]);
+  }
 
   return (
     <>
@@ -72,16 +100,28 @@ export default function App() {
       <main className="main">
 
         <Box>
-         <MovieList movies={movies}/> 
+          {isLoading && <p className="loader">Cargando...</p>}
+          {error && <p className="error">⛔ {error}</p>}
+         <MovieList movies={movies} onSelectMovie={handleSelectMovie}/> 
         </Box>
         
         <Box>
           <WatchedMoviesContainer>
-            <WatchedSummary watched={watched}/>
-            <WatchedMoviesList watched={watched}/>
+            {selectedId ? (
+              <MovieDetails
+              selectedId={selectedId}
+              onCloseMovie={handleCloseMovie}
+              onAddWatched={handleAddWatched}
+              watched={watched}
+            />
+            ) : (
+              <>
+                <WatchedSummary watched={watched}/>
+                <WatchedMoviesList watched={watched}/>
+              </>
+            )}
           </WatchedMoviesContainer>
         </Box>
-        
       </main>
     </>
   );

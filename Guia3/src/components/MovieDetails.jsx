@@ -68,12 +68,40 @@ export const MovieDetails = ({ selectedId, onCloseMovie, onAddWatched, watched }
                 <p className="loader">Cargando...</p>
             ) : (
                 <>
-                    
+                    <header>
+                        <button className="btn-black" onClick={onCloseMovie}>
+                            &larr;
+                        </button>
+                        <img src={poster} alt={`Poster de ${title}`} />
+                        <div className="details-overview">
+                            <h2>{title}</h2>
+                            <p>{released} &bull; {runtime}</p>
+                            <p>{genre}</p>
+                            <p><span>⭐</span>{imdbRating} IMDB rating</p>
+                        </div>
+                    </header> 
+                    <section>
+                        <div className="rating">
+                            {!isWatched ? (
+                                <>
+                                    {/*calificacion con estrellas*/}
+                                    <StarRating maxRating={10} size={18} onSetRating={setUserRating}/>
+                                    {userRating > 0 && (
+                                        <button className="btn-add">
+                                            + Agregar a la lista
+                                        </button>
+                                    )}
+                                </>
+                            ) : (
+                                <p>Has calificao esta pelicula con {watchedUserRating} ⭐</p>
+                            )};
+                        </div>
+                        <p><em>{plot}</em></p>
+                        <p><b>Elenco:</b> {actors}</p>
+                        <p><b>Director:</b> {director}</p>
+                    </section> 
                 </>
-            )
-
-            }
+            )};
         </div>
-    )
-
-}
+    );
+};
