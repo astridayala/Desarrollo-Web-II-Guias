@@ -13,7 +13,7 @@ import { API_KEY } from "./useFetchMovies"; //importacion de la clave
 
 export function useFetchMovieDetails(selectedId){
     //almacenar los detalles de la pelicula
-    const [movie, setMovie] = useState({});
+    const [movie, setMovie] = useState(null);
 
     //indicar si la solicitud esta en curso
     const [isLoading, setIsLoading] = useState(false);
@@ -24,7 +24,7 @@ export function useFetchMovieDetails(selectedId){
     useEffect(() => {
         //sin ID seleccionado, limpiar el estado
         if (!selectedId){
-            setMovie({});
+            setMovie(null);
             setError("");
             return;
         }
@@ -35,20 +35,21 @@ export function useFetchMovieDetails(selectedId){
          * 
          */
 
-        async function fetchMovieDetails(selectedId) {
+        async function fetchMovieDetails(id) {
             try{
                 setIsLoading(true); //activa el estado de carga
                 setError(null); //reinicia errores previos
 
                 //peticion a la API de OMDb con la clave de acceso y el ID de la pelicula
 
-                const response = await fetch(`http://www.omdbapi.com/?apikey=${API_KEY}&i=${selectedId}`);
-
-                //verifica si la respuesta de HTTP es correcta
-                if(!response.ok)
-                    throw new Error("Error al cargar los detalles de la pelicula");
+                const response = await fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&i=${id}`);
 
                 const data = await response.json();
+
+                /*verifica si la respuesta de HTTP es correcta
+                if(!response.ok)
+                    throw new Error("Error al cargar los detalles de la pelicula");*/
+                if(data.Response === "False") throw new Error(data.Error);
 
                 //guardar detalles pelicula
                 setMovie(data);
@@ -56,7 +57,7 @@ export function useFetchMovieDetails(selectedId){
             } catch(err) {
                 //manejo de errores: guardar el mensaje y limpiar el estado
                 setError(err.message);
-                setMovie({});
+                setMovie(null);
             } finally {
                 setIsLoading(false); //finaliza el estado de carga
             }

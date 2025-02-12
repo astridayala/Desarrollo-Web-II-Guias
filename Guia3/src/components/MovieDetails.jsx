@@ -33,7 +33,7 @@ export const MovieDetails = ({ selectedId, onCloseMovie, onAddWatched, watched }
         Actors: actors,
         Director: director,
         Genre: genre
-    } = movie;
+    } = movie || {};
 
     //estado para la calificacion del usuario
     const [userRating, setUserRating] = useState('');
@@ -69,7 +69,7 @@ export const MovieDetails = ({ selectedId, onCloseMovie, onAddWatched, watched }
             ) : (
                 <>
                     <header>
-                        <button className="btn-black" onClick={onCloseMovie}>
+                        <button type="button" className="btn btn-light rounded-circle position-absolute top-0 start-0 m-2" onClick={onCloseMovie}>
                             &larr;
                         </button>
                         <img src={poster} alt={`Poster de ${title}`} />
@@ -87,21 +87,24 @@ export const MovieDetails = ({ selectedId, onCloseMovie, onAddWatched, watched }
                                     {/*calificacion con estrellas*/}
                                     <StarRating maxRating={10} size={18} onSetRating={setUserRating}/>
                                     {userRating > 0 && (
-                                        <button className="btn-add">
+                                        <button 
+                                            className="btn-add"
+                                            onClick={handleAdd}
+                                            >
                                             + Agregar a la lista
                                         </button>
                                     )}
                                 </>
                             ) : (
-                                <p>Has calificao esta pelicula con {watchedUserRating} ⭐</p>
-                            )};
+                                <p>Has calificado esta pelicula con {watchedUserRating}⭐</p>
+                            )}
                         </div>
                         <p><em>{plot}</em></p>
                         <p><b>Elenco:</b> {actors}</p>
                         <p><b>Director:</b> {director}</p>
                     </section> 
                 </>
-            )};
+            )}
         </div>
     );
 };

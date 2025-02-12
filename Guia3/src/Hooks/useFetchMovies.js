@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const API_KEY = 'eb35e3db';
+export const API_KEY = "eb35e3db";
 
 /**
  * 
@@ -29,7 +29,7 @@ export function useFetchMovies(query){
                 setIsLoading(true);
                 setError(null);
 
-                const response = await fetch(`http://www.omdbapi.com/?apikey=${API_KEY}&s=${query}`);
+                const response = await fetch(`https://www.omdbapi.com/?i=tt3896198&apikey=${API_KEY}&s=${query}`);  
 
                 if (!response.ok)
                     throw new Error("Error al cargar películas");
@@ -54,19 +54,7 @@ export function useFetchMovies(query){
         }
 
         fetchMovies();
-        
-        /*async function getMovies() {
-            const res = await fetch(`http://www.omdbapi.com/?apikey=${API_KEY}&s=${query}`);
-            const data = await res.json();
-            setMovies(data.Search);
-        }
-
-        if(query.length > 2){
-            getMovies();
-        }
-        getMovies();*/
-
-    },[query]) //se ejecuta cada vez que cambia la consulta
+    },[query]); //se ejecuta cada vez que cambia la consulta
 
     //retorna los valores necesarios para su uso en componentes
     return {movies, isLoading, error}; 
