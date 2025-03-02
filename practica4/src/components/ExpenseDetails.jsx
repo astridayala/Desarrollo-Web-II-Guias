@@ -62,5 +62,4 @@ export const ExpenseDetails = ({ expense }) => {
             </SwipeableListItem>
         </SwipeableList>
     )
-    
 }

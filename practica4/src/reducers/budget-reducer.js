@@ -1,8 +1,18 @@
+const initialBudget = () => {
+    const localStorageBudget = localStorage.getItem('budget')
+    return localStorageBudget? parseFloat(localStorageBudget):0
+}
+const localStorageExpenses = () => {
+    const localStorageExpenses = localStorage.getItem('expenses')
+    return localStorageExpenses? JSON.parse(localStorageExpenses):[]
+}
+
 export const initialState = {
-    budget: 0,
+    budget: initialBudget(),
     modal: false,
-    expenses: [],
-    editingId: ""
+    expenses: localStorageExpenses(),
+    editingId: "",
+    currentCategory: "",
 }
 
 export const budgetReducer = (state, action) => {
@@ -39,7 +49,26 @@ export const budgetReducer = (state, action) => {
                 expenses: state.expenses.map(expense => expense.id === action.payload.expense.id ?
                     action.payload.expense : expense
                 ),
-                modal: false, editingId: ""
+                modal: false, 
+                editingId: ""
+            }
+        case "close-modal":
+            return {
+                ...state,
+                modal: false,
+                editingId: ""
+            }
+        case "add-filter-category":
+            return{
+                ...state,
+                currentCategory:action.payload.categoryId
+            }
+        case "reset-app":
+            return{
+                ...initialState,
+                budget: 0,
+                expenses: [],
+                currentCategory: ""
             }
         default:
             return state;

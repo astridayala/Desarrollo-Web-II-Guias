@@ -22,6 +22,13 @@ export const ExpenseForm = () => {
         if(state.editingId){
             const editingExpense = state.expenses.filter(currentExpense => currentExpense.id === state.editingId)[0]
             setExpense(editingExpense)
+        } else {
+            setExpense({
+                expenseName: "",
+                amount: 0,
+                category: "",
+                date: new Date(),
+            });
         }
     }, [state.editingId])
 
@@ -46,13 +53,25 @@ export const ExpenseForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        //validacion
+        //validacion campos vacios
         if(Object.values(expense).includes('')){
             setError('Todos los campos son Obligatorios')
             return
         }
 
-        dispatch({type: 'add-expense', payload: {expense}})
+        const totalExpense = state.expenses.reduce((sum, expens) => sum + expens.amount, 0) + expense.amount;
+        if(totalExpense > state.budget){
+            setError("El gasto excede al presupuesto")
+            return;
+        }
+
+        if(state.editingId) {
+            dispatch({ type:'update-expense', payload: { expense: { id:state.editingId, ...expense } } })
+        } else {
+            dispatch({ type: 'add-expense', payload: { expense } })
+        }
+
+        dispatch({ type: 'close-modal' });
 
         //reinicia el state/form
         setExpense({
@@ -61,12 +80,13 @@ export const ExpenseForm = () => {
             category: "",
             date: new Date(),
         })
+        setError;
     }
 
     return(
         <form className="space-y-5" onSubmit={handleSubmit}>
             <legend className="uppercase text-center text-2xl font-black border-b-4 border-blue-500 py-2">
-                Nuevo gasto
+                {state.editingId ? "Guardar cambios" : "Nuevo gasto"}
             </legend>
 
             {error && <ErrorMessage>{error}</ErrorMessage>}
@@ -95,7 +115,7 @@ export const ExpenseForm = () => {
                     id="amount"
                     placeholder="Añade la cantidad del gasto: ej.300"
                     className="bg-slate-100 p-2"
-                    name="amount" //se usa para identificar el campo en el formulario
+                    name="amount"
                     value={expense.amount || ""}
                     onChange={handleChange} 
                 />
@@ -138,7 +158,7 @@ export const ExpenseForm = () => {
             <input 
                 type="submit"
                 className="bg-blue-600 cursor-pointer w-full p-2 text-white uppercase font-bold rounded-lg" 
-                value="Registrar gasto"
+                value={state.editingId ? "Guardar cambios" : "Registrar gasto"}
             />
         </form>
     )
