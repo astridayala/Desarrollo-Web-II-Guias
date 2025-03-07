@@ -16,7 +16,7 @@ export default function SearchForm() {
 
     const handleChange = (e) => {
         setSeachFilters({
-            ...setSeachFilters,
+            ...searchFilters,
             [e.target.name]: e.target.value
         })
     }
@@ -37,7 +37,8 @@ export default function SearchForm() {
     }
 
     return(
-        <form className="md:w-1/2 2xl:w-1/3 bg-orange-400 my-16 p-10 rounded-lg shadow space-y-6" onSubmit={handleSubmit}>
+        <form className="md:w-1/2 2xl:w-1/3 bg-orange-400 my-16 p-10 rounded-lg shadow space-y-6 ml-12" 
+        onSubmit={handleSubmit}>
             <div className="space-y-4">
                 <label 
                     htmlFor="ingredient"
@@ -59,11 +60,11 @@ export default function SearchForm() {
                     className="block text-white uppercase font-extrabold text-lg"
                 >Categoria</label>
                 <select 
-                    value={searchFilters.category}
-                    onChange={handleChange}
                     name="category" 
                     id="category"
                     className="p-3 w-full rounded-lg focus:outline-none bg-white"
+                    value={searchFilters.category}
+                    onChange={handleChange}
                 >
                     <option value="">-- Seleccione --</option>
                     {categories.map(category => (

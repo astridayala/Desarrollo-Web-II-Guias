@@ -1,20 +1,18 @@
 import React from 'react'
 import DrinkCard from '../components/DrinkCard'
 import { useAppStore } from '../store/useAppStore'
-import SearchForm from '../components/SearchForm'
 
 export const IndexPage = () => {
     const drinks = useAppStore((state) => state.drinks)
-    const hasDrinks = drinks.drinks?.length>0
+    const hasDrinks = drinks.drinks?.length > 0
 
     return(
         <>
-            <SearchForm/>
-            <h1 className='text-4xl font-bold'>
+            <h1 className='text-4xl font-bold ml-10'>
                 Recetas
             </h1>
             {hasDrinks ? (
-                <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 my-10 gap-10'>
+                <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 my-10 gap-10 ml-10 mr-10'>
                     {drinks.drinks.map((drink) => (
                         <DrinkCard
                             key={drink.idDrink}

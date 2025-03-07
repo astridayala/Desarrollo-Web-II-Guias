@@ -5,7 +5,7 @@ export const createRecipesSlice = (set) => ({
     drinks:[],
     selectedRecipe:{},
     modal:false,
-    fetchCategories: async() => {
+    fetchCategories: async () => {
         const categories = await getCategories()
         set({categories})
     },
