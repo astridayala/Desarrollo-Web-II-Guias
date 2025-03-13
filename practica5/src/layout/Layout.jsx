@@ -1,6 +1,7 @@
 import { Outlet } from "react-router";
 import Header from "../components/Header";
 import Modal from "../components/Modal";
+import Notification from "../components/Notification";
 import { useAppStore } from "../store/useAppStore";
 import { useEffect } from "react";
 
@@ -19,6 +20,7 @@ export default function Layout() {
                 * donde se renderizaran los componentes de las subrutas */}
             </main>
             <Modal />
+            <Notification/>
         </>
     )
 }

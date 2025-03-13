@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react"
 import { useAppStore } from "../store/useAppStore"
+import { useNotificationStore } from "../store/notificationSlice"
 
 export default function SearchForm() {
     const fetchCategories = useAppStore((state) => state.fetchCategories)
     const categories = useAppStore((state) => state.categories)
+    const searchRecipes = useAppStore((state) => state.searchRecipes)
+    const { notification, showNotification } = useNotificationStore()
 
     useEffect(() => {
         fetchCategories()
@@ -21,14 +24,12 @@ export default function SearchForm() {
         })
     }
 
-    const searchRecipes = useAppStore((state) => state.searchRecipes)
-
     const handleSubmit = (e) => {
         e.preventDefault()
 
         //validar
-        if(Object.values(searchFilters).includes('')){
-            console.log('Todos los campos son obligatorios')
+        if(!searchFilters.ingredient || !searchFilters.category){
+            showNotification('Todos los campos son obligatorios', 'error')
             return
         }
 
@@ -74,6 +75,13 @@ export default function SearchForm() {
                     ))}
                 </select>
             </div>
+
+            { notification && notification.type === "error" && (
+                <div className="w-full top-16 transform -translate-x-1/2 ml-54 mt-5 px-6 py-3 mx-auto rounded-lg text-white font-bold shadow-lg justify-center text-center bg-gray-500">
+                    {notification.message}
+                </div>
+            )}
+
             <input 
                 type="submit"
                 value="Buscar Recetas"

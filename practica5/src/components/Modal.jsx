@@ -1,6 +1,7 @@
 import { Dialog, DialogPanel, DialogTitle, Transition, TransitionChild } from '@headlessui/react';
-import { Fragment } from 'react';
+import { Fragment, useState, useEffect } from 'react';
 import { useAppStore } from '../store/useAppStore';
+import { useNotificationStore } from '../store/notificationSlice';
 
 export default function Modal(){
     //leyendo valores del store
@@ -9,6 +10,21 @@ export default function Modal(){
     const selectedRecipe = useAppStore((state) => state.selectedRecipe)
     const handleClickFavorite = useAppStore((state) => state.handleClickFavorite)
     const favoriteExists = useAppStore((state) => state.favoriteExists)
+    const {notification, showNotification} = useNotificationStore()
+    
+    const [isFavorite, setIsFavorite] = useState(favoriteExists(selectedRecipe.idDrink));
+
+    useEffect(() => {
+        setIsFavorite(favoriteExists(selectedRecipe.idDrink))
+    }, [selectedRecipe, favoriteExists])
+
+    const handleClick = () => {
+        const newState = !isFavorite
+        handleClickFavorite(selectedRecipe);
+        setIsFavorite(newState);
+
+        showNotification(newState ? 'Agregado a favoritos':'Eliminado de favoritos')
+    };
 
     //funcion para renderizar la lista de ingredientes de una bebida
     const renderIngredients = () => {
@@ -53,12 +69,19 @@ export default function Modal(){
                                 leaveFrom='opacity-100 scale-100'
                                 leaveTo='opacity-0 scale-95'
                             >
+                                
                                 <DialogPanel className="relative transform overflow-hidden rounded-lg bg-white px-4 pt-5 pb-4 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-2xl sm:p-6">
                                     <DialogTitle as='h3' className="text-gray-900 text-4xl font-extrabold my-5 text-center" >
                                         {selectedRecipe.strDrink}
                                     </DialogTitle>
 
                                     <img src={selectedRecipe.strDrinkThumb} alt={`Imagen de ${selectedRecipe.strDrink}`} />
+
+                                    {notification && (
+                                        <div className={`w-full top-16 transform -translate-x-1/2 ml-78 mt-5 px-6 py-3 mx-auto rounded-lg text-white font-bold shadow-lg justify-center text-center ${isFavorite ? 'bg-orange-600' : 'bg-gray-600'}`}>
+                                            {notification.message}
+                                        </div>
+                                    )}
 
                                     <DialogTitle as='h3' className="text-gray-900 text-2xl font-extrabold my-5">
                                         Ingredientes y Cantidades
@@ -71,6 +94,7 @@ export default function Modal(){
                                     </DialogTitle>
 
                                     <p className='text-lg'>{selectedRecipe.strInstructions}</p>
+
                                     <div className='mt-5 flex justify-between gap-4'>
                                         <button type='button'
                                             className='w-full rounded bg-gray-600 p-3 font-bold uppercase text-white shadow hover:bg-gray-500'
@@ -78,13 +102,10 @@ export default function Modal(){
                                         >
                                             Cerrar
                                         </button>
-                                        <button type='button' onClick={() => {
-                                            handleClickFavorite(selectedRecipe)
-                                            closeModal()
-                                        }}
+                                        <button type='button' onClick={handleClick}
                                             className='w-full rounded bg-orange-600 p-3 font-bold uppercase text-white shadow hover:bg-orange-500'
                                         >
-                                            {favoriteExists(selectedRecipe.idDrink)?'Eliminar favorito':'Agregar a favoritos'}
+                                            {isFavorite ? 'Eliminar favorito':'Agregar a favoritos'}
                                         </button>
                                     </div>
                                 </DialogPanel>
