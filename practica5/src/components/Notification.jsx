@@ -19,8 +19,5 @@ export default function Notification() {
         <div className="w-full top-16 transform -translate-x-1/2 ml-78 mt-5 px-6 py-3 mx-auto rounded-lg text-white font-bold shadow-lg justify-center text-center">
             {notification.message}
         </div>
-        <div>
-            
-        </div>
     );
 }
