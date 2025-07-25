@@ -1,4 +1,50 @@
 export function Header({cart, total, add, remove, removeOne, deleteAll}){
+    
+    const SITE_ID = 'e3e9d980-a545-47a5-a1df-dc843bade4bb'; 
+
+    const trackCartEvent = (eventName, guitar, extra = {}) => {
+        if (window.PixelFactoryAnalytics) {
+            window.PixelFactoryAnalytics.trackCustomEvent(SITE_ID, eventName, {
+                product_id: guitar.id,
+                product_name: guitar.name,
+                price: guitar.price,
+                quantity: guitar.quantity,
+                image: guitar.image,
+                timestamp: new Date().toISOString(),
+                ...extra
+            });
+        }
+    };
+
+    const handleAdd = (guitar) => {
+        add(guitar);
+        trackCartEvent('cart_item_added', guitar);
+    };
+
+    const handleRemove = (guitar) => {
+        remove(guitar);
+        trackCartEvent('cart_item_decreased', guitar);
+    };
+
+    const handleRemoveOne = (guitar) => {
+        removeOne(guitar);
+        trackCartEvent('cart_item_removed', guitar);
+    };
+
+    const handleDeleteAll = () => {
+        cart.forEach(guitar => {
+        trackCartEvent('cart_item_removed', guitar, { removed_by: 'empty_cart' });
+        });
+        deleteAll();
+        if (window.PixelFactoryAnalytics) {
+        window.PixelFactoryAnalytics.trackCustomEvent(SITE_ID, 'cart_emptied', {
+            total_items: cart.length,
+            total_price: total,
+            timestamp: new Date().toISOString()
+        });
+        }
+    }
+
 
     return(
         <header className="py-5 header">
@@ -44,7 +90,7 @@ export function Header({cart, total, add, remove, removeOne, deleteAll}){
                                             <button
                                                 type="button"
                                                 className="btn btn-dark"
-                                                onClick={()=>remove(guitar)}
+                                                onClick={()=>handleRemove(guitar)}
                                             >
                                                 -
                                             </button>
@@ -52,7 +98,7 @@ export function Header({cart, total, add, remove, removeOne, deleteAll}){
                                             <button
                                                 type="button"
                                                 className="btn btn-dark"
-                                                onClick={()=>add(guitar)}
+                                                onClick={()=>handleAdd(guitar)}
                                             >
                                                 +
                                             </button>
@@ -61,7 +107,7 @@ export function Header({cart, total, add, remove, removeOne, deleteAll}){
                                             <button
                                                 className="btn btn-danger"
                                                 type="button"
-                                                onClick={()=>removeOne(guitar)}
+                                                onClick={()=>handleRemoveOne(guitar)}
                                             >
                                                 X
                                             </button>
@@ -72,7 +118,7 @@ export function Header({cart, total, add, remove, removeOne, deleteAll}){
                             </table>)
                             }
                             <p className="text-end">Total pagar: <span className="fw-bold">${total}</span></p>
-                            <button className="btn btn-dark w-100 mt-3 p-2" onClick={()=>deleteAll()}>Vaciar Carrito</button>
+                            <button className="btn btn-dark w-100 mt-3 p-2" onClick={handleDeleteAll}>Vaciar Carrito</button>
                         </div>
                     </div>
                 </nav>
